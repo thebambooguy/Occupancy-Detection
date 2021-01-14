@@ -6,7 +6,7 @@ A goal of this project is to learn more about Recurrent Neural Networks (RNN) an
 Tensorflow and Keras API. It is a simple project that uses [Occupancy Detection](https://archive.ics.uci.edu/ml/datasets/Occupancy+Detection+) 
 dataset - dataset which consist of multivariate time series classification data to forecast occupancy of an office room. In this project ending 
 score of the RNN is not so important - I would like to focus more on Tensorflow implementation and other ideas i.e.
-creating ML pipeline with Airflow. Project is under development and uses python 3.7.
+creating ML pipeline with Airflow. Project is under development and uses python 3.6.
 
 ### Project structure
 
