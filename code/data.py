@@ -1,3 +1,4 @@
+import argparse
 from pathlib import Path
 
 import numpy as np
@@ -78,8 +79,15 @@ def get_test_data(path: Path):
     return X, y
 
 
+def create_and_parse_args(args=None):
+    parser = argparse.ArgumentParser(description='Data preprocessing')
+    parser.add_argument('--raw_data', type=Path, default="../data/raw_data", help='Dir with raw data')
+    parser.add_argument('--dst_path', type=Path, default="../data/lstm_data", help='Dir where lstm data will be stored')
+    parser.add_argument('--timesteps', type=int, default=TIME_STEPS, help='Number of samples to look back')
+
+    args = parser.parse_args(args)
+    return args
+
 if __name__ == "__main__":
-    path = Path("../data/raw_data")
-    dst_path = Path("../data/lstm_data")
-    create_training_test_files(path, dst_path=dst_path, time_steps=TIME_STEPS)
-    print(get_training_data(dst_path))
+    args = create_and_parse_args()
+    create_training_test_files(src_path=args.raw_data, dst_path=args.dst_path, time_steps=args.timesteps)
